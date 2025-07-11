@@ -7,8 +7,8 @@
 
 'use strict';
 
-import { updateWeather, error404 } from "./app.js";
-const defaultLocation = "#/weather?lat=51.5073219&lon=-0.127464"    // London
+import { updateWeather, error404 } from "./app.js"; 
+const defaultLocation = "#/weather?lat=51.5073219&lon=-0.1276474"    // London
 
 const currentLocation = function () {
     window.navigator.geolocation.getCurrentPosition(res => {
@@ -36,7 +36,7 @@ const checkHash = function () {
 
     const [route, query] = requestURL.includes ? requestURL.split("?") : [requestURL];
 
-    route.get(route) ? routes.get(route)(query) : error404();
+    routes.get(route) ? routes.get(route)(query) : error404();
 }
 
 window.addEventListener("hashchange", checkHash);
